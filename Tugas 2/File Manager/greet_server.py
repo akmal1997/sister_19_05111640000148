@@ -6,7 +6,7 @@ def start_with_ns():
     #name server harus di start dulu dengan  pyro4-ns -n localhost -p 7777
     #gunakan URI untuk referensi name server yang akan digunakan
     #untuk mengecek service apa yang ada di ns, gunakan pyro4-nsc -n localhost -p 7777 list
-    _host = "localhost"
+    _host = "10.151.252.177"
     daemon = Pyro4.Daemon(host=_host)
     ns = Pyro4.locateNS(_host,7777)
     x_GreetServer = Pyro4.expose(GreetServer)

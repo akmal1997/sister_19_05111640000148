@@ -14,10 +14,10 @@ class GreetServer(object):
     def command_success(self):
         return "operation success"
 
-    def bye(self) -> str:
+    def bye(self):
         return "bye!"
 
-    def delete_file(self, path, name) -> str:
+    def delete_file(self, path, name):
         res = self.command_success()
         try:
             os.remove(os.path.join(path, name))
@@ -25,7 +25,7 @@ class GreetServer(object):
             return str(e)
         return res
 
-    def _process_file(self, path, name, operation, *args, **kwargs) -> str:
+    def _process_file(self, path, name, operation, *args, **kwargs):
         res = self.command_success()
         try:
             f = open(os.path.join(path, name), operation)
@@ -42,12 +42,12 @@ class GreetServer(object):
         if not os.path.exists(root):
             os.makedirs(root)
 
-    def _get_storage_path(self) -> str:
+    def _get_storage_path(self):
         root = os.path.dirname(os.path.abspath(__file__)) + "/storage"
         self._root_folder_exists(root)
         return root
 
-    def get_list_dir(self, req) -> str:
+    def get_list_dir(self, req):
         args = req.split()
         dirs = os.listdir(self._get_storage_path())
         res = ""
@@ -62,7 +62,7 @@ class GreetServer(object):
             res = self.command_not_found()
         return res
 
-    def create_handler(self, req) -> str:
+    def create_handler(self, req):
         args = shlex.split(req)
         dirs = self._get_storage_path()
         res = ""
@@ -75,7 +75,7 @@ class GreetServer(object):
             res = self.command_not_found()
         return res
 
-    def delete_handler(self, req) -> str:
+    def delete_handler(self, req):
         args = shlex.split(req)
         dirs = self._get_storage_path()
         res = ""
@@ -88,7 +88,7 @@ class GreetServer(object):
             res = self.command_not_found()
         return res
 
-    def read_handler(self, req) -> str:
+    def read_handler(self, req):
         args = shlex.split(req)
         dirs = self._get_storage_path()
         res = ""

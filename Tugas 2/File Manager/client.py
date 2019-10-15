@@ -1,4 +1,5 @@
 import Pyro4
+import ping_ack.server as detector
 import subprocess
 
 def get_server():

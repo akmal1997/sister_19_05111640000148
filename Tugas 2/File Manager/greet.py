@@ -2,6 +2,7 @@ import subprocess
 import random
 import shlex
 import os
+import ping_ack.server as detector
 
 
 class GreetServer(object):
